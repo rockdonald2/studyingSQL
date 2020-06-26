@@ -1,0 +1,153 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: #222;
+
+    padding-top: 10rem;
+}
+
+.subcontainer {
+    width: 65.5rem;
+    height: 65.5rem;
+    background-color: #999;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.header {
+    font-size: 2.4rem;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.buttons {
+    margin-top: 5rem;
+    height: calc(100% - 110px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.button1 {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.button1 .outer {
+    width: 15rem;
+    height: 5rem;
+    background-color: #dfdfdf;
+
+    border-radius: 100px;
+
+    transition: all .5s ease;
+
+    cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 50;
+}
+
+.button1 .inner {
+    width: 4.6rem;
+    height: 4.6rem;
+    background-color: white;
+
+    border-radius: 50%;
+
+    position: absolute;
+    left: 1%;
+    cursor: pointer;
+    z-index: 1000;
+
+    transition: all .5s ease;
+}
+
+input[name="toggle-button1"] {
+    display: none;
+}
+
+input[name="toggle-button1"]:checked ~ .inner {
+    left: 68%;
+}
+
+input[name="toggle-button1"]:checked ~ .outer {
+    background-color: rgba(88, 219, 0, 0.5);
+}
+
+.button2 {
+    margin-top: 5rem;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.button2 .outer {
+    width: 15rem;
+    height: 4.8rem;
+    background-color: transparent;
+
+    border: 3px solid #ccc;
+    border-radius: 100px;
+
+    transition: all .5s ease;
+
+    cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 50;
+}
+
+.button2 .inner {
+    width: 5.1rem;
+    height: 3.8rem;
+    background-color: #ccc;
+
+    border-radius: 200px;
+
+    position: absolute;
+    left: 4%;
+    cursor: pointer;
+    z-index: 1000;
+
+    transition: all .5s ease;
+}
+
+input[name="toggle-button2"] {
+    display: none;
+}
+
+input[name="toggle-button2"]:checked ~ .inner {
+    left: 62%;
+    background-color: #7FC6A6;
+}
+
+input[name="toggle-button2"]:checked ~ .outer {
+    border: 3px solid #7FC6A6;
+}

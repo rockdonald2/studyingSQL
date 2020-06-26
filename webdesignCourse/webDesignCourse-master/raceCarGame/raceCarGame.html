@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Race Car Game</title>
+        <link rel="stylesheet" type="text/css" href="normalize.css">
+        <link rel="stylesheet" type="text/css" href="raceCarGame.css">
+    </head>
+
+    <body id="race">
+
+        <h1>jQuery Car Racer 2.0</h1>
+
+        <input type="button" value="Race!" id="go">
+        <input type="button" value="Reset" id="reset">
+
+        <div id="racetrack">
+            <img src="car1.png" alt="green car" id="car1" class="car">
+            <img src="car2.png" alt="red car" id="car2" class="car">
+
+            <div id="raceInfoContainer" class="clearfix">
+                <h2>Results</h2>
+                <div id="raceInfo1" class="raceInfo">Car 1<span></span></div>
+                <div id="raceInfo2" class="raceInfo">Car 2<span></span></div>
+            </div>
+        </div>
+
+        <script src="jquery.js"></script>
+        <script src="raceCarGame.js"></script>
+    </body>
+
+</html>

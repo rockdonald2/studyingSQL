@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible"
+            content="ie=edge">
+        <title>Single Page AngularJS Web App</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+            href="css/style.css">
+    </head>
+
+    <!-- This way we make our whole page accessible for the application -->
+
+    <body ng-app="ngCribs"
+        ng-controller="cribsController">
+
+        <nav class="navbar navbar-default bg-dark p-2">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#"
+                        class="navbar-brand">ng-cribs</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="col-sm-12 price-form mb-sm-4">
+                <div class="row price-form-row"
+                    ng-if="!addListing">
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Min price</span>
+                            </div>
+                            <select name="minPrice"
+                                id="minPrice"
+                                ng-model="priceInfo.min"
+                                class="form-control">
+                                <option value="100000">$100,000</option>
+                                <option value="200000">$200,000</option>
+                                <option value="300000">$300,000</option>
+                                <option value="400000">$400,000</option>
+                                <option value="500000">$500,000</option>
+                                <option value="600000">$600,000</option>
+                                <option value="700000">$700,000</option>
+                                <option value="800000">$800,000</option>
+                                <option value="900000">$900,000</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Max price</span>
+                            </div>
+                            <select name="maxPrice"
+                                id="maxPrice"
+                                ng-model="priceInfo.max"
+                                class="form-control">
+                                <option value="100000">$100,000</option>
+                                <option value="200000">$200,000</option>
+                                <option value="300000">$300,000</option>
+                                <option value="400000">$400,000</option>
+                                <option value="500000">$500,000</option>
+                                <option value="600000">$600,000</option>
+                                <option value="700000">$700,000</option>
+                                <option value="800000">$800,000</option>
+                                <option value="900000">$900,000</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary"
+                    ng-click="addListing = !addListing"
+                    ng-show="!addListing">Add Listing</button>
+                <button class="btn btn-danger"
+                    ng-click="addListing = !addListing"
+                    ng-show="addListing">Close</button>
+
+                <div class="listing-form mb-sm-4"
+                    ng-if="addListing">
+                    <h3>Add a listing</h3>
+
+                    <div class="row listing-form-row">
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Address</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the address"
+                                    class="form-control"
+                                    ng-model="newListing.address">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Price</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the price"
+                                    class="form-control"
+                                    ng-model="newListing.price">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Property type</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the property type"
+                                    class="form-control"
+                                    ng-model="newListing.type">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Description</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the description"
+                                    class="form-control"
+                                    ng-model="newListing.description">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Nof. bedrooms</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the number of bedrooms"
+                                    class="form-control"
+                                    ng-model="newListing.details.bedrooms">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Nof. bathrooms</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the number of bathrooms"
+                                    class="form-control"
+                                    ng-model="newListing.details.bathrooms">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Area</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the area in square feet"
+                                    class="form-control"
+                                    ng-model="newListing.details.area">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary listing-button"
+                        ng-click="addCrib(newListing)"
+                        ng-show="addListing">Add</button>
+
+                    <pre>{{ newListing | json }}</pre>
+                </div>
+
+                <div class="listing-form mb-sm-4"
+                    ng-if="editListing">
+                    <h3>Edit a listing</h3>
+
+                    <div class="row listing-form-row">
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Address</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the address"
+                                    class="form-control"
+                                    ng-model="existingListing.address">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Price</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the price"
+                                    class="form-control"
+                                    ng-model="existingListing.price">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Property type</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the property type"
+                                    class="form-control"
+                                    ng-model="existingListing.type">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Description</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the description"
+                                    class="form-control"
+                                    ng-model="existingListing.description">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Nof. bedrooms</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the number of bedrooms"
+                                    class="form-control"
+                                    ng-model="existingListing.details.bedrooms">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Nof. bathrooms</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the number of bathrooms"
+                                    class="form-control"
+                                    ng-model="existingListing.details.bathrooms">
+                            </div>
+                        </div>
+                        <div class="col-sm-4 m-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Area</span>
+                                </div>
+                                <input type="text"
+                                    placeholder="Enter the area in square feet"
+                                    class="form-control"
+                                    ng-model="existingListing.details.area">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary listing-button"
+                        ng-click="saveCribEdit()"
+                        ng-show="editListing">Save</button>
+                    <button class="btn btn-warning listing-button"
+                        ng-click="deleteCrib(existingListing)"
+                        ng-show="editListing">Delete</button>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4"
+                        ng-repeat="crib in cribs | cribsFilter:priceInfo | orderBy: '-id'">
+                        <div class="img-thumbnail">
+                            <img ng-src="/images/{{ crib.image }}.jpg"
+                                alt="Crib"
+                                class="img-fluid">
+                            <div class="figure-caption">
+                                <div ng-hide="showDetails === true">
+                                    <h3>{{ crib.address }}</h3>
+                                    <p><strong>Type: </strong> {{ crib.type }} </p>
+                                    <p><strong>Price: </strong> {{ crib.price | currency }} </p>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-sm btn-success"
+                                ng-hide="showDetails === true"
+                                ng-click="showDetails = !showDetails">Details</button>
+                            <button class="btn btn-sm btn-warning"
+                                ng-show="showDetails === true"
+                                ng-click="editCrib(crib)">Edit</button>
+                            <button class="btn btn-sm btn-danger"
+                                ng-show="showDetails === true"
+                                ng-click="showDetails = !showDetails">Close</button>
+
+                            <div class="details"
+                                ng-show="showDetails === true">
+                                <h4>
+                                    <span class="label label-primary">Beds: {{ crib.details.bedrooms }}</span>
+                                    <span class="label label-primary">Baths: {{ crib.details.bathrooms }}</span>
+                                    <span class="label label-primary">SqrtFT: {{ crib.details.area }}</span>
+                                </h4>
+                                <p>{{ crib.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.angularjs.org/1.4.7/angular.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+        <script src="app.js"></script>
+        <script src="scripts/cribsFactory.js"></script>
+        <script src="scripts/cribsController.js"></script>
+        <script src="scripts/cribsFilter.js"></script>
+    </body>
+
+</html>

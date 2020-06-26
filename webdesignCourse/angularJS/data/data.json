@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "type": "Condo",
+        "price": 220000,
+        "address": "213 Grove Street",
+        "description": "Excellent place, really nice view!",
+        "details": {
+            "bedrooms": 2,
+            "bathrooms": 1.5,
+            "area": 921
+        },
+        "image": "crib-1"
+    },
+
+    {
+        "id": 2,
+        "type": "House",
+        "price": 410500,
+        "address": "7823 Winding Way",
+        "description": "Beautiful home with lots of space for a large family.",
+        "details": {
+            "bedrooms": 8,
+            "bathrooms": 4,
+            "area": 2143
+        },
+        "image": "crib-2"
+    },
+
+    {
+        "id": 3,
+        "type": "Duplex",
+        "price": 395000,
+        "address": "834 River Lane",
+        "description": "Great neighbourhood and lot's of nice green space.",
+        "details": {
+            "bedrooms": 4,
+            "bathrooms": 2,
+            "area": 625
+        },
+        "image": "crib-3"
+    },
+
+    {
+        "id": 4,
+        "type": "Duplex",
+        "price": 395000,
+        "address": "834 River Lane",
+        "description": "Great neighbourhood and lot's of nice green space.",
+        "details": {
+            "bedrooms": 4,
+            "bathrooms": 2,
+            "area": 625
+        },
+        "image": "crib-4"
+    },
+
+    {
+        "id": 5,
+        "type": "Duplex",
+        "price": 395000,
+        "address": "834 River Lane",
+        "description": "Great neighbourhood and lot's of nice green space.",
+        "details": {
+            "bedrooms": 4,
+            "bathrooms": 2,
+            "area": 625
+        },
+        "image": "crib-5"
+    },
+
+    {
+        "id": 6,
+        "type": "Duplex",
+        "price": 395000,
+        "address": "834 River Lane",
+        "description": "Great neighbourhood and lot's of nice green space.",
+        "details": {
+            "bedrooms": 4,
+            "bathrooms": 2,
+            "area": 625
+        },
+        "image": "crib-6"
+    }
+]
